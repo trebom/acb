@@ -16,7 +16,7 @@ class User(AbstractUser):
         WON = "won", "Korean Won"
         USD = "usd", "Dollar"
         
-    avatar = models.ImageField(blank=True)
+    avatar = models.URLField(blank=True)
     first_name = models.CharField(max_length=150,editable=False)
     last_name = models.CharField(max_length=150, editable=False)
     name = models.CharField(max_length=150, default="")
