@@ -1,0 +1,22 @@
+databases:
+  - name: acb
+    databaseName: acb
+    user: acb
+    region: ohio
+
+services:
+  - type: web
+    name: acb
+    env: python
+    region: ohio
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn acb.wsgi:application"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: acb
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
