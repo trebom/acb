@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 import environ
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 import dj_database_url
 
 env = environ.Env()
@@ -194,3 +196,17 @@ CORS_ALLOW_CREDENTIALS = True
 CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:3000"]
 
 GH_SECRET = env("GH_SECRET")
+
+if not DEBUG:
+
+    sentry_sdk.init(
+        dsn="https://120154a8848f4ed19933399668bc8e9a@o434859.ingest.sentry.io/4504414139645952",
+    integrations=[
+        DjangoIntegration(),
+    ],
+
+        traces_sample_rate=1.0,
+
+        send_default_pii=True,
+
+    )
