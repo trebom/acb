@@ -85,9 +85,11 @@ class LogIn(APIView):
             return Response({"error": "wrong password"})
 
 class LogOut(APIView):
+
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
+        sleep(5)
         logout(request)
         return Response({"ok": "bye!"})
 
