@@ -1,5 +1,5 @@
 databases:
-  - name: acb
+  - name: acb-db
     databaseName: acb
     user: acb
     region: ohio

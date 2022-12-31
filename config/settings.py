@@ -36,6 +36,7 @@ DEBUG = "RENDER" not in os.environ
 
 ALLOWED_HOSTS = [
     "localhost",
+    "backend.ksflash.xyz",
 ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -204,7 +205,8 @@ CORS_ALLOW_CREDENTIALS = True
 GH_SECRET = env("GH_SECRET")
 
 if not DEBUG:
-
+    SESSION_COOKIE_DOMAIN = ".ksflash.xyz"
+    CSRF_COOKIE_DOMAIN = ".ksflash.xyz"
     sentry_sdk.init(
         dsn="https://120154a8848f4ed19933399668bc8e9a@o434859.ingest.sentry.io/4504414139645952",
     integrations=[
