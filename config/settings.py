@@ -195,8 +195,8 @@ if DEBUG:
     CORS_ALLOWED_ORIGINS = ["http://127.0.0.1:3000"]
     CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:3000"]
 else:
-    CORS_ALLOWED_ORIGINS = ["https://acb.onrender.com"]
-    CSRF_TRUSTED_ORIGINS = ["https://acb.onrender.com"]
+    CORS_ALLOWED_ORIGINS = ["https://acf.onrender.com"]
+    CSRF_TRUSTED_ORIGINS = ["https://acf.onrender.com"]
 
 CORS_ALLOW_CREDENTIALS = True
 
